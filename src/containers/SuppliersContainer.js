@@ -47,9 +47,11 @@ class SuppliersContainer extends React.Component{
     fetchSuppliers =()=> {
         fetch(baseURL + suppliersEndPoint)
         .then(resp=>resp.json())
-        .then(data=> this.setState({
+        .then(data=> {
+            this.setState({
             suppliers: data
-        }))
+        })
+    })
     }
     componentDidMount(){
         this.fetchSuppliers()

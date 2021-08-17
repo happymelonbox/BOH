@@ -11,10 +11,12 @@ class CreateSupplier extends React.Component{
 
     submitToDatabase = (event) =>{
         event.preventDefault()
+        console.log(event.target)
         event.target.disabled=true
         event.target.innerHTML = "Submitted"
         this.postsupplier()
         this.props.updateSuppliers()
+        this.props.startNewSupplier()
     }
 
     postsupplier = () => {
@@ -46,7 +48,8 @@ class CreateSupplier extends React.Component{
             })
         })
         .then(resp=>resp.json())
-        .then(data=>console.log(data))
+        .then(data=>{
+            console.log(data)})
     }
 
     render(){
@@ -56,7 +59,7 @@ class CreateSupplier extends React.Component{
             <div className="create-display-created-supplier-container">
                 <SupplierCard supplier={this.props.supplier} />
                 <button className="create-supplier-submits-recipe-card" onClick={this.submitToDatabase}>Submit supplier?</button>
-                <button className="create-supplier-submits-recipe-card" onClick={this.props.startNewsupplier}>Start again?</button>
+                <button className="create-supplier-submits-recipe-card" onClick={this.props.startNewSupplier}>Start again?</button>
             </div>
 
         </div>
