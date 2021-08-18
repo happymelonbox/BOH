@@ -37,6 +37,12 @@ class StockTake extends React.Component{
         })
         }
     }
+    handleSubmitStocktake = (event) => {
+        event.target.innerHTML = "Submitted!"
+        event.target.disabled = true
+        this.submitStocktake()
+        this.props.updateStocktake()
+    }
 
     submitStocktake = () => {
         const date = new Date()
@@ -45,7 +51,6 @@ class StockTake extends React.Component{
         const year = date.getFullYear()
         const todaysDate = `${day}/${month}/${year}`
         const length = this.props.stocktake.length + 1
-        console.log(length)
         const body = {
                   "id": length,
                   "date": todaysDate,
@@ -64,7 +69,7 @@ class StockTake extends React.Component{
     render(){
         return(
             <div>
-                <StocktakeForm stocktake={this.props.masterStocktake} handleInput={this.handleQuantityInput} submitStocktake={this.submitStocktake}/>
+                <StocktakeForm stocktake={this.props.masterStocktake} handleInput={this.handleQuantityInput} submitStocktake={this.handleSubmitStocktake}/>
             </div>
         )
 }

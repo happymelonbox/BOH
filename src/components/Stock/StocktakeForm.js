@@ -17,7 +17,6 @@ const StocktakeForm = ({stocktake, stocktakeTotal, handleInput, submitStocktake}
     const recipeCoolroom = recipeItems.filter(product=>{return product.location === "Coolroom"})
     const recipeDryStore = recipeItems.filter(product=>{return product.location === "Dry Store"})
     const recipeFreezer = recipeItems.filter(product=>{return product.location === "Freezer"})
-    
 
     return(
         <div className="stock-stocktake-main-container">
@@ -43,7 +42,7 @@ const StocktakeForm = ({stocktake, stocktakeTotal, handleInput, submitStocktake}
                         <StocktakeInput location={recipeDryStore} handleInput={handleInput}/>
                 </div>
             </div>
-            <button className="stock-stocktake-submit-button"onClick={submitStocktake}>Submit stocktake</button>
+            <button className="stock-stocktake-submit-button" onClick={submitStocktake}>Submit stocktake</button>
         </div>
     )
 }

@@ -31,7 +31,7 @@ class StockContainer extends React.Component{
             })
         })
     }
-    updateStocktake =()=>{
+    updateStocktake =(event)=>{
         this.fetchStock()
     }
 
@@ -45,10 +45,10 @@ class StockContainer extends React.Component{
                             <StockItems stocktake={this.state.stocktake} stockToDisplay={this.state.masterStocktake}/>
                         </Route>
                         <Route exact path="/addStockItem">
-                            <AddStockItem stocktake={this.state.stocktake} updateStocktake={this.updateStocktake}/>
+                            <AddStockItem stocktake={this.state.stocktake} updateStocktakes={this.updateStocktake}/>
                         </Route>
                         <Route exact path="/stockTake">
-                            <StockTake stocktake={this.state.stocktake} masterStocktake={this.state.masterStocktake} />
+                            <StockTake stocktake={this.state.stocktake} masterStocktake={this.state.masterStocktake} updateStocktake={this.updateStocktake}/>
                         </Route>
                     </div>
                 </Router>
